@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-const Createsteam: NextPage = () => {
+const Createstream: NextPage = () => {
   return (
     <div className="px-4 py-10 space-y-4">
       <div>
@@ -56,4 +56,4 @@ const Createsteam: NextPage = () => {
   );
 };
 
-export default Createsteam;
+export default Createstream;
