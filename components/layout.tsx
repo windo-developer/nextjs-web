@@ -25,14 +25,9 @@ export default function Layout({
 
   return (
     <div>
-      <div
-        className={classjoin(
-          !canGoBack ? "justify-center" : "",
-          "bg-white fixed flex w-full max-w-lg px-10 py-3 border-b top-0 text-gray-700 text-lg font-medium"
-        )}
-      >
+      <div className="bg-white fixed flex w-full h-12 max-w-lg px-10 border-b top-0 text-gray-700 text-lg font-medium justify-center items-center">
         {canGoBack ? (
-          <button onClick={onClick}>
+          <button onClick={onClick} className="absolute left-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -49,15 +44,28 @@ export default function Layout({
             </svg>
           </button>
         ) : null}
-        {title ? <span>{title}</span> : null}
+        {title ? (
+          <span
+            className={classjoin(canGoBack ? "mx-auto" : "", "font-semibold")}
+          >
+            {title}
+          </span>
+        ) : null}
       </div>
       <div className={classjoin("pt-14", hasTabBar ? "pb-24" : "")}>
         {children}
       </div>
       {hasTabBar ? (
-        <nav className="bg-white fixed flex justify-between w-full max-w-lg text-gray-700 border-t bottom-0 pb-10 pt-3">
+        <nav className="bg-white fixed flex justify-between w-full max-w-lg text-gray-800 border-t bottom-0 pb-10 pt-3">
           <Link href="/">
-            <a className="flex flex-col items-center space-y-2">
+            <a
+              className={classjoin(
+                "flex flex-col items-center space-y-2",
+                router.pathname === "/"
+                  ? "text-orange-500"
+                  : "hover:text-gray-500 transition-colors"
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -76,7 +84,14 @@ export default function Layout({
             </a>
           </Link>
           <Link href="/community">
-            <a className="flex flex-col items-center space-y-2">
+            <a
+              className={classjoin(
+                "flex flex-col items-center space-y-2",
+                router.pathname === "/community"
+                  ? "text-orange-500"
+                  : "hover:text-gray-500 transition-colors"
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -95,7 +110,14 @@ export default function Layout({
             </a>
           </Link>
           <Link href="/chats">
-            <a className="flex flex-col items-center space-y-2">
+            <a
+              className={classjoin(
+                "flex flex-col items-center space-y-2",
+                router.pathname === "/chats"
+                  ? "text-orange-500"
+                  : "hover:text-gray-500 transition-colors"
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -114,7 +136,14 @@ export default function Layout({
             </a>
           </Link>
           <Link href="/stream">
-            <a className="flex flex-col items-center space-y-2">
+            <a
+              className={classjoin(
+                "flex flex-col items-center space-y-2",
+                router.pathname === "/stream"
+                  ? "text-orange-500"
+                  : "hover:text-gray-500 transition-colors"
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -132,7 +161,14 @@ export default function Layout({
             </a>
           </Link>
           <Link href="/profile">
-            <a className="flex flex-col items-center space-y-2">
+            <a
+              className={classjoin(
+                "flex flex-col items-center space-y-2",
+                router.pathname === "/profile"
+                  ? "text-orange-500"
+                  : "hover:text-gray-500 transition-colors"
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
